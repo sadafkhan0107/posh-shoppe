@@ -1,0 +1,22 @@
+.filter{
+    width: 29rem;
+    height: 100vh;
+    margin-left: 1rem;
+    padding-right: 1rem;
+    overflow-y: auto;
+  }
+  .slider{
+    width: 100%;
+  }
+.nav-filter{
+    padding: 3px;
+    display: flex;
+    justify-content: space-between;
+  }
+  .price-range{
+    display: flex;
+    justify-content: space-between;
+  }
+  .filter-list{
+    padding-top: 10px;
+  }
