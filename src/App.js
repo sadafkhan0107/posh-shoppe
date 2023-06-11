@@ -7,8 +7,8 @@ import {useFilter} from './context/filter-context/filter-context'
 
 function App() {
   const [products,setProducts] = useState([])
-  const {discount, rating} = useFilter();
-  console.log(discount);
+  const {discount, rating,category,sortBy,price,isIncludeOutOfStock,isFastDelivery} = useFilter();
+  console.log(isIncludeOutOfStock);
 
   useEffect(() => {
     (
@@ -22,24 +22,65 @@ function App() {
       }
     )()
   },[])
+  const getProductsByIsOutOfStock = (products, isIncludeOutOfStock) =>{
+    const filteredArray = !isIncludeOutOfStock ? products.filter(product => product.outOfStock === isIncludeOutOfStock) : products
+    return filteredArray
+  }
+  const filteredByOutOfStock = getProductsByIsOutOfStock(products, isIncludeOutOfStock);
+
   const getProductsByDiscount =(products,discount)=>{
     const filteredArray = discount ? products.filter((product) => product.discount >= discount) : products;
     return filteredArray;
   }
-  const filteredByDiscount = getProductsByDiscount(products, discount)
+  const filteredByDiscount = getProductsByDiscount(filteredByOutOfStock, discount)
 
   const getProductsByRating = (products,rating)=>{
-    const filteredByRating = rating ? products.filter(product => product.itemRating >= rating) :products;
-    return filteredByRating;
+    const filteredArray = rating ? products.filter(product => product.itemRating >= rating) :products;
+    return filteredArray;
   }
   const filteredByRating = getProductsByRating(filteredByDiscount,rating)
-  
+
+  const getProductsByCategory = (products, category) =>{
+    const filteredArray = category !== "all" ? products.filter(product => product.itemCategory === category) : products;
+    return filteredArray;
+  }
+  const filteredByCategory = getProductsByCategory(filteredByRating, category);
+
+  const getProductsBySort = (products, sortBy) =>{
+    let filteredArray = [...products]
+    if(sortBy==="lowToHigh")
+    {
+       filteredArray = filteredArray.sort((a, b) => a.newPrice -b.newPrice)
+    }
+    else if(sortBy === "highToLow")
+    {
+       filteredArray = filteredArray.sort((a, b) => b.newPrice -a.newPrice)
+    }
+    else{
+       filteredArray = products
+    }
+    return filteredArray;
+  }
+  const filteredBySortBy = getProductsBySort(filteredByCategory, sortBy);
+
+  const getProductsByPrice = (products, price) =>{
+    const filteredArray = price ? products.filter(product => product.newPrice<= price) : products;
+    return filteredArray;
+  }
+  const filteredByPrice = getProductsByPrice(filteredBySortBy, price);
+
+  const getProductsByFastDelivery = (products, isFastDelivery) =>{
+    const filteredArray = isFastDelivery ? products.filter(product => product.isFast === isFastDelivery) : products
+    return filteredArray
+  }
+  const filteredByFastDelivery = getProductsByFastDelivery(filteredByPrice, isFastDelivery);
+
   return (
     <div className='home-page'>
     <Filter />
     <main className='container'>
     {
-      filteredByRating?.length > 0 && filteredByRating.map(product => <ProductCard key={product.id} product={product}/>)
+      filteredByFastDelivery?.length > 0 && filteredByFastDelivery.map(product => <ProductCard key={product.id} product={product}/>)
     }
     </main>
     </div>

@@ -4,16 +4,15 @@
 }
 .home-page{
   display: flex;
-  margin: 8px 0;
-  padding: 8px 0;
 
 }
 .container{
   /* margin: 1rem;
   padding: 1rem; */
+  margin-left:20rem;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  /* justify-content: space-between; */
   gap: 3rem;
 }
 
