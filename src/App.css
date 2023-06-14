@@ -2,19 +2,7 @@
   margin: 0;
   padding: 0;
 }
-.home-page{
-  display: flex;
 
-}
-.container{
-  /* margin: 1rem;
-  padding: 1rem; */
-  margin-left:20rem;
-  display: flex;
-  flex-wrap: wrap;
-  /* justify-content: space-between; */
-  gap: 3rem;
-}
 
 
 
