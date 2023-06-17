@@ -1,5 +1,5 @@
 import { useContext, createContext, useReducer } from "react";
-import {discountReducer} from '../../reducer/discountReducer/discountReducer';
+import {discountReducer} from '../reducer/discountReducer';
 
 const FilterContext = createContext();
 
@@ -11,12 +11,13 @@ const FilterProvider =({children}) => {
         rating: 0,
         discount : 0,
         isIncludeOutOfStock : false,
-        isFastDelivery : ""
+        isFastDelivery : "",
+        searchInput: "",
     }
 
-    const[{price, category, sortBy, rating, discount,isIncludeOutOfStock,isFastDelivery},dispatch] = useReducer(discountReducer, initialState);
+    const[{price, category, sortBy, rating, discount,isIncludeOutOfStock,isFastDelivery,searchInput},dispatch] = useReducer(discountReducer, initialState);
  return (
-     <FilterContext.Provider value={{price, category, sortBy, rating, discount,isIncludeOutOfStock,isFastDelivery,dispatch}}>
+     <FilterContext.Provider value={{price, category, sortBy, rating, discount,isIncludeOutOfStock,isFastDelivery,searchInput,dispatch}}>
        {children}
      </FilterContext.Provider>
    )

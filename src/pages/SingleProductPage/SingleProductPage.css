@@ -1,0 +1,18 @@
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons+Outlined');
+
+.product-container{
+    margin-top: 5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+}
+.prod-image-container{
+    width: 400px;
+    height: 450px;
+}
+.prod-image{
+    width: 400px;
+    height: 450px;
+    object-fit: cover;
+}

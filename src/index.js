@@ -3,16 +3,25 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { FilterProvider } from './context/filter-context/filter-context';
+import { FilterProvider } from './context/filter-context';
 import { BrowserRouter } from 'react-router-dom';
+import { LogInProvider } from './context/login-context';
+import { CartProvider } from './context/cart-context';
+import { WishlistProvider } from './context/wishlist-context';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <BrowserRouter>
    <React.StrictMode>
+    <WishlistProvider>
+    <CartProvider>
      <FilterProvider>
-      <App />
+      <LogInProvider>
+        <App />
+      </LogInProvider>
      </FilterProvider>
+     </CartProvider>
+    </WishlistProvider>
    </React.StrictMode>
   </BrowserRouter>
 );

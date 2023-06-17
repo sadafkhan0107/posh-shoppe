@@ -1,8 +1,14 @@
 import { Fragment } from "react"
+import { Navbar } from "../../components/Navbar/Navbar"
+import { useWishlist } from "../../context/wishlist-context"
 export const Wishlist = () => {
+    const {wishlist} = useWishlist();
     return(
         <Fragment>
-            <h1>Hi Welcome to wishlist</h1>
+            <Navbar />
+            <div className="wishlist-prod-container">
+                {}
+            </div>
         </Fragment>
     )
 }

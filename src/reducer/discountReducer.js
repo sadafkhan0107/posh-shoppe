@@ -21,7 +21,11 @@ switch(type){
             rating: 0,
             discount : 0,
             isIncludeOutOfStock : false,
-            isFastDelivery : ""}
+            isFastDelivery : "",
+            searchInput: ""
+        }
+    case "search" :
+        return {...state, searchInput : payload}
     default:
         return state;
 }

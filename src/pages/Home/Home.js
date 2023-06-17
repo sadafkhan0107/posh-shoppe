@@ -3,13 +3,13 @@ import { ProductCard } from '../../components/ProductCard/ProductCard';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Filter } from '../../components/Filter/Filter';
-import {useFilter} from '../../context/filter-context/filter-context';
+import {useFilter} from '../../context/filter-context';
 import {Navbar} from '../../components/Navbar/Navbar';
 
 export const Home = () =>{
   const [products,setProducts] = useState([])
-  const {discount, rating,category,sortBy,price,isIncludeOutOfStock,isFastDelivery} = useFilter();
-  console.log(isIncludeOutOfStock);
+  const {discount, rating,category,sortBy,price,isIncludeOutOfStock,isFastDelivery,searchInput} = useFilter();
+  // console.log(isIncludeOutOfStock);
 
   useEffect(() => {
     (
@@ -23,11 +23,20 @@ export const Home = () =>{
       }
     )()
   },[])
+
+  const getProductsBySearch = (products, searchInput) =>{
+    // console.log(searchInput)
+    const filteredArray = searchInput ? products.filter((product) => (product.title.toLowerCase().includes(searchInput.toLowerCase()) || product.productCategory.toLowerCase().includes(searchInput.toLowerCase()))) : products
+    // console.log(filteredArray)
+    return filteredArray
+  }
+  const searchedItems = getProductsBySearch(products, searchInput)
+
   const getProductsByIsOutOfStock = (products, isIncludeOutOfStock) =>{
     const filteredArray = !isIncludeOutOfStock ? products.filter(product => product.outOfStock === isIncludeOutOfStock) : products
     return filteredArray
   }
-  const filteredByOutOfStock = getProductsByIsOutOfStock(products, isIncludeOutOfStock);
+  const filteredByOutOfStock = getProductsByIsOutOfStock(searchedItems, isIncludeOutOfStock);
 
   const getProductsByDiscount =(products,discount)=>{
     const filteredArray = discount ? products.filter((product) => product.discount >= discount) : products;
@@ -81,7 +90,7 @@ export const Home = () =>{
     <Navbar />
     <div className='home-page'>
     <Filter />
-    <main className='container'>
+    <main className='products-container'>
     {
       filteredByFastDelivery?.length > 0 && filteredByFastDelivery.map(product => <ProductCard key={product.id} product={product}/>)
     }

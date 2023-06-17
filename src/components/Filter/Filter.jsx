@@ -1,5 +1,5 @@
 import './Filter.css';
-import { useFilter } from '../../context/filter-context/filter-context';
+import { useFilter } from '../../context/filter-context';
 export const Filter=()=>{
 
 const {price, dispatch} = useFilter();
