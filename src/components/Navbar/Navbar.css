@@ -5,10 +5,13 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 0.5rem;
-    /* position: fixed;
+    width: 100vw;
+    padding: 0.5rem;
+    position: fixed;
     top: 0;
-    left: 0; */
+    left: 0;
+    z-index: 2;
+    background-color: aliceblue;
 }
 .brand{
     display: flex;
@@ -18,6 +21,9 @@
     padding: 8px;
     background: none;
     border: none;
+}
+.nav-items{
+    padding-right: 1.5rem;
 }
 
 .search-icon{

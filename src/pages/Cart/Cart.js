@@ -11,6 +11,7 @@ export const Cart = () =>{
                 {cart.length > 0 ? (
                     <>
                     <h1>My Cart</h1>
+                    
                     </>
                 ) : (<>
                 <h1>Add items in cart</h1>
