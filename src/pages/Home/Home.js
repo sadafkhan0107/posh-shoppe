@@ -88,7 +88,7 @@ export const Home = () =>{
   return (
     <>
     <Navbar />
-    <div className='home-page'>
+    <div className='page d-flex'>
     <Filter />
     <main className='products-container'>
     {

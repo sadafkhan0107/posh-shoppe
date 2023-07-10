@@ -1,7 +1,8 @@
-import { useCart } from '../../context/cart-context';
 import './ProductCard.css';
+import { useCart } from '../../context/cart-context';
 import { useNavigate } from 'react-router-dom';
 import { findProducts } from '../../utilities/findProducts';
+import { useWishlist } from '../../context/wishlist-context';
 
 export const ProductCard = ({product}) =>{
   // console.log(product);
@@ -22,28 +23,39 @@ export const ProductCard = ({product}) =>{
     navigate('/cart')
   }
   
+  const {wishlist, wishlistDispatch} = useWishlist();
+  const isInWishlist = findProducts(wishlist, id)
+  const handleWishlistClick = () =>{
+    if(!isInWishlist){
+      wishlistDispatch({
+        type: "wishlist",
+        payload: product
+      })
+    }
+  }
     return(
-        <div className="card-container">
+        <div className="card-container br-4">
       <div className='image-container relative'>
         <img className='img' src={imgUrl} alt={productCategory}/>
-        <button className='absolute top-0 right-0'> <span className="material-icons-outlined">favorite_border</span> </button>
+        <button className='absolute top-0 right-0' onClick={handleWishlistClick}> <span className= {`${isInWishlist ? "material-icons-outlined" : "material-icons"}`}>favorite_border</span> </button>
       </div>
-      <div className='card-details' onClick={handleClick}>
-        <p>{title}</p>
-        <p>{productCategory}</p>
-        <div className='price-container'>
-          <div>Rs.{newPrice} </div> 
-          <div className='old-price'>Rs. {oldPrice}</div> 
-          <div>({discount}%) Off</div>
-        </div>
-        <p>
-          {itemRating}
-          <span className="material-icons-outlined">star_outline</span>
-        </p>
+      <div className='card-details d-flex d-column gap-s' onClick={handleClick}>
+          <p className='prod-title'>{title}</p>
+          <p className='prod-category'>{productCategory}</p>
+          <div className='price-container'>
+            <span className='prod-new-price'>Rs. {newPrice} </span> 
+            <span className='prod-old-price'>Rs. {oldPrice}</span> 
+            <span className='prod-discount'>({discount}%) Off</span>
+          </div>
+          <p className='d-flex gap-s align-center'>
+            <span className='prod-item-rating'> {itemRating}</span>
+            <span className="material-icons-outlined star-color">star</span>
+          </p>
       </div>
-      <div className='cta'>
-        <button className='cart-btn' onClick={handleAddToCartClick}><span className="material-icons-outlined">shopping_cart</span>
-        <span> {isInCart ? "Go to Cart" : "Add to Cart"}</span>
+      <div className='cta '>
+        <button className='cart-btn d-flex align-center gap-m justify-center br-4' onClick={handleAddToCartClick}>
+          <span className="material-icons-outlined">shopping_cart</span>
+          <span className='text-space-sm'> {isInCart ? "Go to Cart" : "Add to Cart"}</span>
         </button>
       </div>
     </div>

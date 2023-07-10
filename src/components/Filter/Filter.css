@@ -1,7 +1,7 @@
 .filter{
-    width: 12rem;
+    width: 17rem;
     height: 100vh;
-    padding: 1rem 1rem 10rem 1rem;
+    padding: 1rem 2rem 5rem 2rem;
     position: fixed;
     top:5rem;
     left:0;
@@ -14,11 +14,20 @@
   .slider{
     width: 100%;
   }
-.nav-filter{
+  .nav-filter{
     padding: 3px;
-    display: flex;
     justify-content: space-between;
+    margin-bottom: 1rem;
   }
+
+  .clear-btn{
+    font-size: 1.25rem;
+    background: none;
+    color: var(--primary-btn-color);
+    border: none;
+    border-bottom: 1px solid var(--primary-btn-color);
+  }
+
   .price-range{
     display: flex;
     justify-content: space-between;
@@ -28,4 +37,9 @@
   }
   .additional-filter{
     padding-bottom: 5rem;
+  }
+
+  .check-box{
+    width: 16px;
+    height: 16px;
   }

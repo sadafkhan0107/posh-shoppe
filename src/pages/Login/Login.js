@@ -20,9 +20,11 @@ export const Login =() =>{
     return(
         <Fragment>
             <Navbar />
+            <div className="page">
             <h1>Hi to login page</h1>
             <button onClick={handleLogInLogOutClick}> {isLogIn ? "LogOut" : "LogIn"}</button>
             <button onClick={handleSignupClick}>SignUp</button>
+            </div>
         </Fragment>
         
     )

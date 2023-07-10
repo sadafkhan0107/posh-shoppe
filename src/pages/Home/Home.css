@@ -2,20 +2,15 @@
     margin: 0;
     padding: 0;
   }
-  .home-page{
-    display: flex;
-    margin-top: 5rem;
   
-  }
   .products-container{
-    /* margin: 1rem;
-    padding: 1rem; */
-    margin-left:17rem;
+    margin-left:19rem;
     display: flex;
     flex-wrap: wrap;
-    /* justify-content: space-between; */
     gap: 3rem;
+    padding-top: 1.5rem;
   }
+ 
   
   
   

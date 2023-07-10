@@ -11,10 +11,8 @@
     top: 0;
     left: 0;
     z-index: 2;
-    background-color: aliceblue;
-}
-.brand{
-    display: flex;
+    background-color: var(--background-color);
+    border-bottom: 1px solid rgba(0,0,0,0.1);
 }
 .nav-items-button{
     margin:5px;
@@ -26,37 +24,40 @@
     padding-right: 1.5rem;
 }
 
-.search-icon{
-    /* margin:8px; */
-    /* padding: 8px; */
-    background: none;
-    border: none;
-}
 .login{
-    font-size: 1.2rem;
+    font-size: 1rem;
     padding-left: 1rem;
     padding-right: 1rem;
-    background-color: brown;
+    background-color: var(--primary-btn-color);
     color: white;
 }
 .page-title{
     text-decoration: none;
     font-weight: 700;
     letter-spacing: 1px;
-    color: brown;
+    color: var(--primary-btn-color);
 }
 .page-logo{
     height: 3rem;
     width: 3rem;
     border-radius: 50%;
 }
+
+.search-icon{
+    background: none;
+    border: none;
+    bottom: 4px;
+    width: 30px;
+}
+
 .search-box {
     width: 20rem;
     padding-left: 2rem;
+    padding-bottom: 4px;
     font-size: 1rem;
     border: none;
     background-color: transparent;
-    border-bottom: 1px solid brown;
+    border-bottom: 1px solid var(--primary-btn-color);
   }
 
   .search-box:focus {

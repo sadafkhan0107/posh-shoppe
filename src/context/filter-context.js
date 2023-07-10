@@ -5,7 +5,7 @@ const FilterContext = createContext();
 
 const FilterProvider =({children}) => {
     const initialState = {
-        price: 4000,
+        price: 40000,
         category: "all",
         sortBy:"",
         rating: 0,
