@@ -2,10 +2,6 @@
 
 .product-container{
     margin-top: 5rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 0.5rem;
 }
 .prod-image-container{
     width: 400px;
@@ -14,5 +10,5 @@
 .prod-image{
     width: 400px;
     height: 450px;
-    object-fit: cover;
+    object-fit: contain;
 }

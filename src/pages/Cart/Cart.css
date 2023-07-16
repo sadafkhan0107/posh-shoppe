@@ -1,0 +1,40 @@
+.cart-prods-container{
+    padding-left: 10rem;
+}
+.cart-products{
+    margin-top: 1rem;
+}
+.amount-container{
+    width: 23rem;
+    padding: 1rem;
+    margin-top: 1rem;
+    background-color: var(--background-color);
+    position: fixed;
+    left: 60%;
+    box-shadow: 2px 2px 2px 2px rgba(0,0,0,0.2);
+}
+
+.total-price{
+    border-top: 1px solid rgba(0,0,0,0.2);
+    border-bottom: 1px solid rgba(0,0,0,0.2);
+    font-weight: 700;
+    padding: 1rem 0;
+    font-size: 1.1rem;
+}
+
+.br-bt{
+    padding-bottom: 1rem;
+    border-bottom: 1px solid rgba(0,0,0, 0.2);
+  }
+
+.order-btn{
+    width: 100%;
+    background-color: var(--primary-btn-color);
+    color: #fafafa;
+    padding: 1rem 1.5rem;
+    font-size: 1.15rem;
+}
+
+.order-btn:hover{
+   opacity: 0.85; 
+}

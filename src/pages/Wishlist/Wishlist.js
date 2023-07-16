@@ -1,7 +1,8 @@
+import './Wishlist.css';
 import { Fragment } from "react"
 import { Navbar } from "../../components/Navbar/Navbar"
 import { useWishlist } from "../../context/wishlist-context";
-import { HorizontalCard } from "../../components/ProductCard/HorizontalCard";
+import { ProductCard } from '../../components/ProductCard/ProductCard';
 export const Wishlist = () => {
     const {wishlist} = useWishlist();
     return(
@@ -11,9 +12,9 @@ export const Wishlist = () => {
                 {wishlist.length > 0 ? (
                     <>
                     <h1>My Wishlist</h1>
-                    <main className='products-container'>
+                    <main className='wishlist-products d-flex gap-l'>
                        {
-                         wishlist?.length > 0 && wishlist.map(product => <HorizontalCard key={product.id} product={product} ctaBtns = {['Add to Cart' , 'Remove from Wishlist']}/>)
+                         wishlist?.length > 0 && wishlist.map(product => <ProductCard key={product.id} product={product} from="wishlist"/>)
                          }
                     </main>
                     </>

@@ -30,46 +30,46 @@ export const SingleProductPage = () => {
     return (
     <Fragment>
         <Navbar />
-        <div className="product-container">
-            <div className="prod-image-container">
-                <img className="prod-image" src={imgUrl} alt={productCategory}/>
+        <div className="product-container d-flex justify-center align-center gap-s">
+              <div className="prod-image-container">
+                  <img className="prod-image" src={imgUrl} alt={productCategory}/>
+              </div>
+              <div className="prod-content-container text-space-sm">
+                  <div className="product-details">
+                    <h1>{title}</h1> 
+                    <h3>{description} </h3>
+                    <div >
+                      <span className="rating-font">{itemRating}</span>{" "}
+                      <span className="material-icons-outlined star">
+                        star
+                      </span>
+                  </div>
             </div>
-            <div className="prod-content-container">
-        <div className="product-details">
-          <h1>{title}</h1>
-          <h3>{description} </h3>
-          <div >
-            <span className="rating-font">{itemRating}</span>{" "}
-            <span className="material-icons-outlined star">
-                star
-                </span>
+            <div className="card-price ">
+                <div>
+                    <span className="product-final-price">Rs. {newPrice}</span>
+                    <span className="prod-price-strike-through">Rs. {oldPrice}</span>
+                    <span className="prod-discount">({discount}% OFF)</span>
+                </div>
+                <p className="tax-text">inclusive of all taxes</p>
+            </div>
+            <div className="delivery-options">
+                <h3>Delivery Options</h3>
+                <div className="shipping">
+                  <span className="material-icons-outlined">local_shipping</span>{" "}
+                  <span>Get it in 3 days</span>
+                </div>
+                <div className="shipping">
+                  <span className="material-icons-outlined">currency_rupee</span>{" "}
+                  <span>Pay on delivery available</span>
+                </div>
+                <div className="shipping">
+                  <span className="material-icons-outlined">change_circle</span>{" "}
+                  <span>30 days exchange and return available</span>
+                </div>
+            </div>
           </div>
-        </div>
-        <div className="card-price ">
-          <div>
-            <span className="product-final-price">Rs. {newPrice}</span>
-            <span className="prod-price-strike-through">Rs. {oldPrice}</span>
-            <span className="prod-discount">({discount}% OFF)</span>
-          </div>
-          <p className="tax-text">inclusive of all taxes</p>
-        </div>
-        <div className="delivery-options">
-          <h3>Delivery Options</h3>
-          <div className="shipping">
-            <span className="material-icons-outlined">local_shipping</span>{" "}
-            <span>Get it in 3 days</span>
-          </div>
-          <div className="shipping">
-            <span className="material-icons-outlined">currency_rupee</span>{" "}
-            <span>Pay on delivery available</span>
-          </div>
-          <div className="shipping">
-            <span className="material-icons-outlined">change_circle</span>{" "}
-            <span>30 days exchange and return available</span>
-          </div>
-        </div>
-        </div>
-       </div> 
+        </div> 
     </Fragment>
     )
 }

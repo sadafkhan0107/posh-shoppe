@@ -20,10 +20,11 @@ body{
 .d-flex{
   display: flex;
 }
+
 .page{
   margin-top: 5rem;
 }
-button{
+.button{
   cursor: pointer;
 }
 
@@ -39,12 +40,20 @@ button{
   gap: 1rem;
 }
 
+.gap-l{
+  gap: 2rem;
+}
+
 .align-center{
   align-items: center;
 }
 
 .justify-center{
   justify-content: center;
+}
+
+.space-between{
+  justify-content: space-between;
 }
 
 .br-4{
@@ -58,8 +67,17 @@ button{
 .relative-pos{
   position: relative;
 }
+
 .absolute-pos{
   position: absolute;
+}
+
+.top-0{
+  top: 0;
+}
+
+.right-0{
+  right: 0;
 }
 
 .text-space-sm{
@@ -70,4 +88,12 @@ button{
   font-size: 1.25rem;
   margin: 8px 0;
 
+}
+
+.border-none{
+  border: none;
+}
+
+.font-1rem{
+  font-size: 1rem;
 }

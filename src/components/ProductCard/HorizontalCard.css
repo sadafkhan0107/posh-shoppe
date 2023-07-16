@@ -1,14 +1,9 @@
-.d-flex{
-    display: flex;
-}
 .horizontal-container{
     padding: 10px;
-    width: 38rem;
+    width: 30rem;
     box-shadow: 4px 4px 4px 4px rgba(0, 0, 0, 0.1);
     height: 14rem;
     align-items: center;
-    justify-content: space-between;
-    /* gap: 12px; */
 }
 
 .hr-image-container{
@@ -22,8 +17,37 @@
     object-fit: contain;
   }
 
-  .hr-btn{
-    width: 100%;
+.hr-btn{
+    width: 8rem;
+    height: 2rem;
     color: white;
     background-color: var(--primary-btn-color);
   }
+
+.hr-old-price{
+    text-decoration: line-through;
+    font-size: 12px;
+    align-self: flex-end;
+  }
+  
+.hr-new-price{
+    font-weight: 700;
+  }
+  
+.hr-discount{
+    color: var(--primary-btn-color);
+    font-weight: 700;
+  }
+
+.count-btn{
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 50%;
+    background: none;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+  }
+
+.count{
+    border: 1px solid black;
+}
+
