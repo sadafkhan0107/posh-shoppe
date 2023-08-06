@@ -2,7 +2,7 @@ import './Filter.css';
 import { useFilter } from '../../context/filter-context';
 export const Filter=()=>{
 
-const {price, dispatch} = useFilter();
+const {price,category, sortBy, rating, discount,isIncludeOutOfStock,isFastDelivery,searchInput, dispatch} = useFilter();
 
   const handleDiscountChange=(e)=>{
     dispatch({
@@ -73,31 +73,31 @@ const {price, dispatch} = useFilter();
           <h3 className='h3'>Category</h3>
           <div className='filter-list'>
             <label className='d-flex align-center gap-s'>
-              <input className='check-box' type='radio' name="category" value="all" onChange={handleCategoryChange}/>
+              <input className='check-box' type='radio' checked={category === 'all'} name="category" value="all" onChange={handleCategoryChange}/>
               All
             </label>
           </div>
           <div className='filter-list'>
             <label className='d-flex align-center gap-s'>
-              <input className='check-box' type='radio' name="category"  value="men" onChange={handleCategoryChange}/>
+              <input className='check-box' checked={category === 'men'} type='radio' name="category"  value="men" onChange={handleCategoryChange}/>
               Men
             </label>
           </div>
           <div className='filter-list'>
           <label className='d-flex align-center gap-s'>
-              <input className='check-box' type='radio' name="category"  value="women" onChange={handleCategoryChange}/>
+              <input className='check-box' checked={category === 'women'} type='radio' name="category"  value="women" onChange={handleCategoryChange}/>
               Women
             </label>
           </div>
           <div className='filter-list'>
           <label className='d-flex align-center gap-s'>
-              <input className='check-box' type='radio' name="category"  value="boys" onChange={handleCategoryChange}/>
+              <input className='check-box' checked={category === 'boys'} type='radio' name="category"  value="boys" onChange={handleCategoryChange}/>
               Boys
             </label>
           </div>
           <div className='filter-list'>
           <label className='d-flex align-center gap-s'>
-              <input className='check-box' type='radio' name="category"  value="girls" onChange={handleCategoryChange}/>
+              <input className='check-box' checked={category === 'girls'} type='radio' name="category"  value="girls" onChange={handleCategoryChange}/>
               Girls
             </label>
           </div>
@@ -106,13 +106,13 @@ const {price, dispatch} = useFilter();
             <h3 className='h3'>Sort by</h3>
             <div className='filter-list low-to-high'>
             <label className='d-flex align-center gap-s'>
-              <input className='check-box' type='radio' name="sortByPrice" value='lowToHigh' onChange={handleSortByChange}/>
+              <input className='check-box' type='radio' checked={sortBy === 'lowToHigh'} name="sortByPrice" value='lowToHigh' onChange={handleSortByChange}/>
               Price - Low to High
             </label>
             </div>
             <div className='filter-list high-to-low'>
             <label className='d-flex align-center gap-s'>
-              <input className='check-box' type='radio' name='sortByPrice' value='highToLow' onChange={handleSortByChange}/>
+              <input className='check-box' type='radio' checked={sortBy === 'highToLow'} name='sortByPrice' value='highToLow' onChange={handleSortByChange}/>
               Price - High to Low
             </label> 
             </div>
@@ -121,25 +121,25 @@ const {price, dispatch} = useFilter();
             <h3 className='h3'>Rating</h3>
             <div className='filter-list star4'>
             <label className='d-flex align-center gap-s'>
-              <input className='check-box' type='radio' name='rating' value="4" onChange={handleRatingChange}/>
+              <input className='check-box' checked={rating === '4'} type='radio' name='rating' value="4" onChange={handleRatingChange}/>
               4 stars and above
             </label>
             </div>
             <div className='filter-list star3'>
             <label className='d-flex align-center gap-s'>
-              <input className='check-box' type='radio'name='rating' value="3" onChange={handleRatingChange}/>
+              <input className='check-box' checked={rating === '3'} type='radio'name='rating' value="3" onChange={handleRatingChange}/>
               3 stars and above
             </label>
             </div>
             <div className='filter-list star2'>
             <label className='d-flex align-center gap-s'>
-              <input className='check-box' type='radio' name='rating' value="2" onChange={handleRatingChange}/>
+              <input className='check-box' checked={rating === '2'} type='radio' name='rating' value="2" onChange={handleRatingChange}/>
               2 stars and above
             </label>
             </div>
             <div className='filter-list star1'>
             <label className='d-flex align-center gap-s'>
-              <input className='check-box' type='radio' name='rating' value="1" onChange={handleRatingChange}/>
+              <input className='check-box' checked={rating === '1'} type='radio' name='rating' value="1" onChange={handleRatingChange}/>
               1 stars and above
             </label>
             </div>
@@ -148,19 +148,19 @@ const {price, dispatch} = useFilter();
             <h3 className='h3'>Discount</h3>
             <div className=' filter-list fifty'>
             <label className='d-flex align-center gap-s'>
-              <input className='check-box' type='radio' name='discount' value="50" onChange={handleDiscountChange}/>
+              <input className='check-box' type='radio' checked={discount === '50'} name='discount' value="50" onChange={handleDiscountChange}/>
               50% and above
             </label>
             </div>
             <div className='filter-list thirty'>
             <label className='d-flex align-center gap-s'>
-              <input className='check-box' type='radio' name='discount' value="30" onChange={handleDiscountChange}/>
+              <input className='check-box' type='radio' checked={discount === '30'} name='discount' value="30" onChange={handleDiscountChange}/>
               30% and above
             </label>
             </div>
             <div className='filter-list twenty'>
             <label className='d-flex align-center gap-s'>
-              <input className='check-box' type='radio' name='discount' value="20" onChange={handleDiscountChange}/>
+              <input className='check-box' type='radio' checked={discount === '20'} name='discount' value="20" onChange={handleDiscountChange}/>
               20% and above
             </label>
             </div>
@@ -169,13 +169,13 @@ const {price, dispatch} = useFilter();
             <h3 className='h3'>Additional Filters</h3>
             <div className='filter-list outofstock'>
             <label className='d-flex align-center gap-s'>
-              <input className='check-box 'type='checkbox' onChange={handleIncludeOutOfStockChange}/>
+              <input className='check-box 'type='checkbox' checked={isIncludeOutOfStock} onChange={handleIncludeOutOfStockChange}/>
               Include Out of Stock
             </label>
             </div>
             <div className='filter-list fast-delivery' >
             <label className='d-flex align-center gap-s'>
-              <input className='check-box' type='checkbox' onChange={handleFastDeliveryChange}/>
+              <input className='check-box' type='checkbox' checked={isFastDelivery} onChange={handleFastDeliveryChange}/>
               Fast Delivery
             </label>
             </div>

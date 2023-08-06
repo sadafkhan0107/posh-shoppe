@@ -4,5 +4,7 @@ export const PrivateRoute = ({children}) => {
     const {isLogIn} = useLogin()
     const location = useLocation()
     console.log(location);
-    return isLogIn ? children : <Navigate to={'/auth/login'} state={{from : location}} replace />
+    const token = localStorage.getItem('token');
+
+    return token ? children : <Navigate to={'/auth/login'} state={{from : location}} replace />
 }

@@ -12,6 +12,8 @@ export const cartReducer =(state, {type,payload}) =>{
         case 'decQuantity':
             return {...state, cart : state.cart.map((prod) => prod.id === payload.id ? ({...prod, quantity: prod.quantity-1}) : prod)}
 
+        case 'clearCart':
+            return {...state, cart:[]}
         default:
             return state
     }

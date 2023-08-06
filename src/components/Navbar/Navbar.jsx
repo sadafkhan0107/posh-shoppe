@@ -11,8 +11,17 @@ export const Navbar = () =>{
     const {cart} = useCart();
     const {wishlist} = useWishlist();
     const navigate = useNavigate();
+    const token = localStorage.getItem('token');
+
     const handleLogInClick = () => {
-        navigate('/auth/login')
+        if(!token){
+            navigate('/auth/login')
+        }
+        else{
+            localStorage.clear()
+            navigate('/auth/login')
+        }
+         
     }
     const handleWishlistClick = () => {
         navigate('/wishlist')
@@ -25,7 +34,7 @@ export const Navbar = () =>{
       type: "search",
       payload: e.target.value
     }), 500)
-    
+
     return (
         
         <div className='container'>
@@ -42,7 +51,7 @@ export const Navbar = () =>{
                 <input className='search-box' placeholder='Search a product' onChange={handleSearchChange}/> 
              </div>
             <div className='nav-items d-flex align-center gap-l'>
-                <button className='nav-items-button login br-4 text-space-sm border-none button' onClick={handleLogInClick}>Login</button>
+                <button className='nav-items-button login br-4 text-space-sm border-none button' onClick={handleLogInClick}>{token? 'LogOut' : 'Login'}</button>
                 <div className='relative-pos'>
                     <button className='nav-items-button button' onClick={handleWishlistClick}>
                         <span className="material-icons-outlined">favorite_border</span>

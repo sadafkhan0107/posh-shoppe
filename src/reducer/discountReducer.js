@@ -15,7 +15,8 @@ switch(type){
     case "isIncludeOutOfStock" :
         return {...state, isIncludeOutOfStock: payload}
     case "clear" :
-        return{price: 4000,
+        return { 
+            price: 4000,
             category: "all",
             sortBy:"",
             rating: 0,

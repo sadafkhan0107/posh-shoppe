@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons+Outlined');
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
 
 *{
   margin: 0;
@@ -10,6 +12,7 @@
   --primary-btn-color: #382a40;
   --text-color-primary: #020617;
   --background-color: #fafaf9;
+  --card-background: #F8FAFC;
 }
 
 body{

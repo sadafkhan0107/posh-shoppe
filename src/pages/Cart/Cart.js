@@ -1,13 +1,61 @@
 import './Cart.css';
 import { Fragment } from 'react';
+import { useNavigate } from 'react-router-dom';
 import {Navbar } from '../../components/Navbar/Navbar'
 import { useCart } from '../../context/cart-context'
 import { HorizontalCard } from '../../components/ProductCard/HorizontalCard';
+import logo from '../../utilities/Posh Shoppe.png'
 export const Cart = () =>{
-    const { cart } = useCart();
+    const { cart,cartDispatch } = useCart();
+    const navigate = useNavigate()
     const totalPrice = cart.reduce((acc,curr) => acc + curr.newPrice * curr.quantity, 0)
     const totalOldPrice = cart.reduce((acc, curr) => acc+ curr.oldPrice * curr.quantity, 0)
     console.log(totalPrice)
+
+    const loadScript = (src) => {
+        return new Promise(resolve => {
+            const script = document.createElement("script");
+            script.src= src;
+            script.onload = () => resolve(true);
+            script.onerror = () => resolve(false);
+            document.body.appendChild(script);
+        });
+    };
+  
+    const displayRazorpay = async () => {
+        const response = await loadScript("https://checkout.razorpay.com/v1/checkout.js");
+  
+        if(!response){
+          console.log({
+              open: true,
+              message: "Razorpay SDK failed to load",
+              type: "error"
+          })
+        }
+  
+        const options = {
+          key: "rzp_test_trSXg5APd0JXvf",
+          amount: totalPrice * 100,
+          curreny: "INR",
+          name: "PoshShoppe",
+          description: "Thank you for shopping with us.",
+          image: {logo},
+  
+          handler: ({payment_id}) => {
+              cartDispatch({type: "clearCart"});
+              navigate("/")
+          },
+          prefill: {
+            name: 'sadaf khan',
+            email: 'sadafkhan0107@gmail.com',
+            contact: "9988776655",
+          },
+        }
+  
+        const paymentObject = new window.Razorpay(options);
+        paymentObject.open();
+    }
+
     return (
         <Fragment>
             <Navbar />
@@ -43,7 +91,7 @@ export const Cart = () =>{
                                 <span>You will save Rs. {totalOldPrice-totalPrice} on this order</span>
                             </div>
                             <div className='d-flex align-center justify-center'>
-                                <button className='order-btn border-none br-4 button text-space-sm'>PLACE ORDER</button>
+                                <button className='order-btn border-none br-4 button text-space-sm' onClick={displayRazorpay}>PLACE ORDER</button>
                             </div>
                         </div>
                     </main>
