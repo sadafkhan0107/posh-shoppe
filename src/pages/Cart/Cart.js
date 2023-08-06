@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import {Navbar } from '../../components/Navbar/Navbar'
 import { useCart } from '../../context/cart-context'
 import { HorizontalCard } from '../../components/ProductCard/HorizontalCard';
-import logo from '../../utilities/Posh Shoppe.png'
+import logo from '../../utilities/PoshShoppe.png'
 export const Cart = () =>{
     const { cart,cartDispatch } = useCart();
     const navigate = useNavigate()

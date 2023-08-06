@@ -2,7 +2,7 @@ import './Navbar.css';
 import { useNavigate, Link } from 'react-router-dom';
 import {debounce} from 'lodash'
 import { useFilter } from '../../context/filter-context';
-import logo from '../../utilities/Posh Shoppe.png';
+import logo from '../../utilities/PoshShoppe.png';
 import { useCart } from '../../context/cart-context';
 import { useWishlist } from '../../context/wishlist-context';
 
