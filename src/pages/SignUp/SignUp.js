@@ -3,21 +3,19 @@ import { Fragment, useState } from "react";
 import { Navbar } from "../../components/Navbar/Navbar";
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import CryptoJS from 'crypto-js';
 
 export const SignUp = () => {
     const [form, setForm] = useState({name:'', number:'', email:'', password:''});
     const navigate = useNavigate();
-    const secret = process.env.REACT_APP_PASSWORD_SECRET_KEY
 
     const handleSubmit = async(e) =>{
         e.preventDefault()
         try{
-            const data = await axios.post('https://sadafuu.prakashsakari.repl.co/api/auth/register', {
-                "username": form.name,
+            const data = await axios.post('https://ecom-backend-test.prakashsakari.repl.co/api/auth/signup', {
+                "name": form.name,
                 "number": form.number,
                 "email": form.email,
-                "password": CryptoJS.AES.encrypt(form.password, secret).toString()
+                "password": form.password
             })
             console.log(data);
             setForm({name:'', number:'', email:'', password:''})

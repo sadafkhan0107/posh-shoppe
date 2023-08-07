@@ -53,13 +53,13 @@ export const Navbar = () =>{
             <div className='nav-items d-flex align-center gap-l'>
                 <button className='nav-items-button login br-4 text-space-sm border-none button' onClick={handleLogInClick}>{token? 'LogOut' : 'Login'}</button>
                 <div className='relative-pos'>
-                    <button className='nav-items-button button' onClick={handleWishlistClick}>
-                        <span className="material-icons-outlined">favorite_border</span>
+                    <button className='nav-items-button button size' onClick={handleWishlistClick}>
+                        <span className="material-icons-outlined font-l" >favorite_border</span>
                         <span className='over-num absolute-pos top-0 right-0'>{wishlist.length}</span>
                     </button>
                 </div>
                 <div className='relative-pos'>
-                    <button className='nav-items-button button' onClick={handleCartClick}>
+                    <button className='nav-items-button button size' onClick={handleCartClick}>
                     <span className="material-icons-outlined">shopping_cart</span>
                     <span className='over-num absolute-pos top-0 right-0'>{cart.length}</span>
                     </button>

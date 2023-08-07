@@ -4,7 +4,6 @@ import { useNavigate, useLocation } from "react-router-dom";
 import { useLogin } from "../../context/login-context";
 import { Navbar } from "../../components/Navbar/Navbar";
 import axios from 'axios';
-import CryptoJS from 'crypto-js';
 
 export const Login = () => {
     const navigate = useNavigate()
@@ -29,7 +28,7 @@ export const Login = () => {
     const handleSubmit = async(e) => {
         e.preventDefault();
         try{
-            const {data: {accessToken, username}} = await axios.post('https://sadafuu.prakashsakari.repl.co/api/auth/login',{number: form.number, password: CryptoJS.AES.encrypt(form.password, process.env.REACT_APP_PASSWORD_SECRET_KEY).toString()})
+            const {data: {accessToken, username}} = await axios.post('https://ecom-backend-test.prakashsakari.repl.co/api/auth/login',{number: form.number, password: form.password})
             console.log({accessToken, username})
             localStorage.setItem('token', accessToken)
             localStorage.setItem('username', username)
@@ -42,7 +41,7 @@ export const Login = () => {
 
     const handleTestClick = async() => {
         try{
-            const {data: {accessToken, username}} = await axios.post('https://sadafuu.prakashsakari.repl.co/api/auth/login',{number: '1234567892', password: CryptoJS.AES.encrypt('1234567892', process.env.REACT_APP_PASSWORD_SECRET_KEY).toString()})
+            const {data: {accessToken, username}} = await axios.post('https://ecom-backend-test.prakashsakari.repl.co/api/auth/login',{number: '9876543219', password: '9876543219'})
             console.log({accessToken, username})
             localStorage.setItem('token', accessToken)
             localStorage.setItem('username', username)

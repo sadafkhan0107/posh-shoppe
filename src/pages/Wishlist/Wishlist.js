@@ -3,8 +3,11 @@ import { Fragment } from "react"
 import { Navbar } from "../../components/Navbar/Navbar"
 import { useWishlist } from "../../context/wishlist-context";
 import { ProductCard } from '../../components/ProductCard/ProductCard';
+import { useNavigate } from 'react-router-dom';
+
 export const Wishlist = () => {
     const {wishlist} = useWishlist();
+    const navigate = useNavigate();
     return(
         <Fragment>
             <Navbar />
@@ -20,6 +23,7 @@ export const Wishlist = () => {
                     </>
                 ) : (<>
                 <h1>Add items in wishlist</h1>
+                <button className='btn button' onClick={() => navigate('/')}> Click here to add items in Wishlist</button>
                 </>)}
             </div>
         </Fragment>

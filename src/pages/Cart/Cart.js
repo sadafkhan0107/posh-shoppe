@@ -96,9 +96,10 @@ export const Cart = () =>{
                         </div>
                     </main>
                     </>
-                ) : (<>
+                ) : (<div>
                 <h1>Add items in cart</h1>
-                </>)}
+                <button className='btn button' onClick={() => navigate('/')}> Click here to add items in Cart</button>
+                </div>)}
             </div>
         </Fragment>
         

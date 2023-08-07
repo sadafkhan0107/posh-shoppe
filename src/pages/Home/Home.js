@@ -92,7 +92,7 @@ export const Home = () =>{
     <Filter />
     <main className='products-container'>
     {
-      filteredByFastDelivery?.length > 0 && filteredByFastDelivery.map(product => <ProductCard key={product.id} product={product} from= "home"/>)
+      filteredByFastDelivery?.length > 0 ? filteredByFastDelivery.map(product => <ProductCard key={product.id} product={product} from= "home"/>) : <h2>Sorry no Products found</h2>
     }
     </main>
     </div>
